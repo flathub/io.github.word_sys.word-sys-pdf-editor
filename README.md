@@ -1,0 +1,385 @@
+**Languages:** [English](README.md) | [Türkçe](README.tr.md) | [Français](README.fr.md) | [Deutsch](README.de.md) | [Español](README.es.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
+
+# word-sys's PDF Editor
+<img src="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/word_sys_pdf_editor/img/f-pv1.svg" width="256" height="256"/>
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: GPL-3.0-or-later](https://img.shields.io/badge/license-GPLv3+-blue.svg)](LICENSE)
+[![GitHub All Releases](https://img.shields.io/github/downloads/word-sys/word-sys-pdf-editor/total)](https://github.com/word-sys/word-sys-pdf-editor/releases)
+[![Flathub](https://img.shields.io/flathub/v/io.github.word_sys.word-sys-pdf-editor?logo=flathub)](https://flathub.org/apps/io.github.word_sys.word-sys-pdf-editor)
+
+**word-sys's PDF Editor** is a simple and user-friendly tool developed for Pardus, Debian and other Linux distributions, focused on editing text, image and object content in PDF files. Developed from scratch in the spirit of #MilliTeknolojiHamlesi and TEKNOFEST 2025 to meet the need for a simple, free, open-source PDF editor in the Linux ecosystem, word-sys's PDF Editor serves both corporate and individual users, does most of the important and common jobs that other paid PDF Editors does and has lots of features which are easy to use, including those who prefer the Turkish language interface — and been the **FIRST PLACE** winner of the TEKNOFEST 2025 Pardus Development Competition.
+
+Developer: **Barın Güzeldemirci (word-sys)**  
+License: **GPL-3.0-or-later**
+
+---
+
+> [!TIP]
+> **Recommended Stable Release: v1.11.2** — For the most stable experience, it is strongly recommended to use version **1.11.2**. See the installation sections below for details on how to install this version.
+
+---
+
+## Screenshots
+
+| **PDF Editing & Annotation Canvas** | **Welcome Screen & Document Hub** |
+| :---: | :---: |
+| <a href="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/screenshots/screenshot1.png"><img src="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/screenshots/screenshot1.png" alt="PDF Editing Canvas" width="450"/></a> | <a href="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/screenshots/screenshot2.png"><img src="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/screenshots/screenshot2.png" alt="Welcome Screen" width="450"/></a> |
+| **New Document Creation Dialog** | **Interactive Quick Start Guide & Manual** |
+| <a href="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/screenshots/screenshot3.png"><img src="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/screenshots/screenshot3.png" alt="New Document Creation Dialog" width="450"/></a> | <a href="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/screenshots/screenshot4.png"><img src="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/screenshots/screenshot4.png" alt="Quick Start Guide & Manual" width="450"/></a> |
+| **Visual Document Merging Workspace** | **Multi-Format Export & Document Tabs** |
+| <a href="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/screenshots/screenshot5.png"><img src="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/screenshots/screenshot5.png" alt="Visual Document Merging Workspace" width="450"/></a> | <a href="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/screenshots/screenshot6.png"><img src="https://raw.githubusercontent.com/word-sys/word-sys-pdf-editor/refs/heads/main/screenshots/screenshot6.png" alt="Document Export Dialog & Tabs" width="450"/></a> |
+
+---
+
+## Key Features
+
+*   Create PDF files with customizable page dimensions and unit auto-conversion (mm, cm, in, pt, px)
+*   Open and view PDF files
+*   Merge PDFs
+*   Interactive Quick Start Guide & Manual with keyboard shortcuts cheatsheet (`F1`)
+*   Select existing text blocks within a page
+*   Edit or delete selected text
+*   Add new text blocks to a page
+*   Add images to a page with alpha transparency preservation
+*   Font width/family support with Linux Fontconfig (`fc-match`) engine
+*   Move/reposition objects within the PDF
+*   Change font type, size, color, and decoration
+*   Granular Word Selection and precise highlighting
+*   Add shapes to PDFs (Rectangles, Ellipses, Checkmarks, Crosses)
+*   Draw freehand Pen and Highlighter strokes with Bézier smoothing and vector scaling
+*   Special Characters, Symbols & Emojis
+*   Save edited PDFs
+*   Quick Save (`Ctrl + S`)
+*   Export PDFs to DOCX, PPTX, ODT, ODP, and TXT formats using the native anyconvert engine
+*   User-friendly interface with live thumbnail drag-and-drop reordering
+*   Safe Save
+*   Restricted Mode (Safe Mode)
+*   Full multi-level Undo/Redo tracking (`Ctrl + Z` / `Ctrl + Y`)
+*   Precision pointer-centered focal zoom (`Ctrl + Scroll` and `Ctrl + + / - / 0`)
+*   Add/remove pages in PDFs
+
+### Native Document Export (anyconvert)
+
+word-sys's PDF Editor includes the pure-Python [anyconvert](https://github.com/word-sys/anyconvert) ([PyPI](https://pypi.org/project/anyconvert/)) document engine for exporting PDFs without external dependencies such as LibreOffice.
+
+Supported formats:
+*   **Microsoft Word (`.docx`)**
+*   **Microsoft PowerPoint (`.pptx`)**
+*   **OpenDocument Text (`.odt`)**
+*   **OpenDocument Presentation (`.odp`)**
+*   **Plain Text (`.txt`)**
+
+Conversion modes:
+*   **Pixel-Accurate Canvas (`mode='canvas'`)**: Preserves exact 1:1 visual positions of text, shapes, and images. Recommended for edited PDFs.
+*   **Semantic Flow (`mode='flow'`)**: Reconstructs headings, paragraphs, and reflowable text structure.
+
+anyconvert can also be run independently from the command line:
+```bash
+anyconvert input.pdf -f docx -m canvas -o output.docx
+```
+
+---
+
+## Installation
+
+There are several ways to install word-sys's PDF Editor on your system:
+
+### 1. Flatpak / Flathub (Recommended Method)
+
+word-sys's PDF Editor is officially available on [Flathub](https://flathub.org/apps/io.github.word_sys.word-sys-pdf-editor).
+
+<a href="https://flathub.org/apps/io.github.word_sys.word-sys-pdf-editor"><img src="https://dl.flathub.org/assets/badges/flathub-badge-en.svg" alt="Download on Flathub" width="190"/></a>
+
+Install using Flatpak:
+```bash
+flatpak install flathub io.github.word_sys.word-sys-pdf-editor
+```
+
+Run the application:
+```bash
+flatpak run io.github.word_sys.word-sys-pdf-editor
+```
+
+---
+
+### 2. Debian / Ubuntu / Pardus Package (.deb)
+
+This method is the easiest installation path for Debian, Ubuntu, and Pardus distributions.
+
+1.  Download the latest `.deb` package from the [**GitHub Releases**](https://github.com/word-sys/word-sys-pdf-editor/releases) page. The file will typically be named `word-sys-pdf-editor_1.11.2_amd64.deb` (or `_arm64.deb` for ARM64).
+
+    > [!TIP]
+    > **Use version 1.11.2** for the most stable experience: look for `word-sys-pdf-editor_1.11.2_amd64.deb` on the releases page.
+
+2.  Open a terminal in the directory where you downloaded the `.deb` file.
+3.  Run the following command to install the package:
+    ```bash
+    sudo apt update
+    sudo apt install ./word-sys-pdf-editor_1.11.2_amd64.deb
+    ```
+    *(Note: Replace `word-sys-pdf-editor_1.11.2_amd64.deb` with the exact filename you downloaded if different, such as `arm64`.)*
+4.  If you encounter a dependency error during installation, it may happens because of you existing broken system, firstly try running the following command to fix missing dependencies or problems on your other packages:
+    ```bash
+    sudo apt --fix-broken install
+    ```
+5.  Once installation is complete, you can launch word-sys's PDF Editor from your application menu.
+
+---
+
+### 3. AppImage and Binary Release
+
+This method is the easiest usable path for all Linux distributions.
+
+1.  Download the latest `.AppImage` or `*-linux-*.tar.gz` package from the [**GitHub Releases**](https://github.com/word-sys/word-sys-pdf-editor/releases) page. The file will typically be named `word-sys-pdf-editor-x86_64.AppImage` (or `-aarch64.AppImage`) or `word-sys-pdf-editor-linux-x86_64.tar.gz`.
+
+    > **Use version 1.11.2** for the most stable experience: look for `v1.11.2` tag on the releases page.
+
+#### A. AppImage Installation
+
+1. Open a terminal in the directory where you downloaded the `word-sys-pdf-editor-x86_64.AppImage` file.
+
+2. Run this command to make it executable:
+    ```bash
+    chmod +x word-sys-pdf-editor-x86_64.AppImage
+    ```
+
+3. Double-click the AppImage file or run in terminal:
+    ```bash
+    ./word-sys-pdf-editor-x86_64.AppImage
+    ```
+
+#### B. Binary Release Installation (tar.gz)
+
+1. Open a terminal in the directory where you downloaded the `word-sys-pdf-editor-linux-x86_64.tar.gz` file.
+
+2. Unzip the archive:
+    ```bash
+    tar -xzf word-sys-pdf-editor-linux-x86_64.tar.gz
+    ```
+
+3. Navigate to the extracted directory:
+    ```bash
+    cd AppDir
+    ```
+
+4. Make the AppRun executable:
+    ```bash
+    chmod +x AppRun
+    ```
+
+5. Run the application:
+    ```bash
+    ./AppRun
+    ```
+
+---
+
+### 4. Manual Installation (For Developers or Those Who Want to Build from Source)
+
+This method is suitable for users who want to run the application directly from source code or contribute to development.
+
+> [!TIP]
+> For a stable experience, use the **v1.11.2** tag when cloning. If you want to test the latest development changes, you can clone the `main` branch directly — but note that it may be less stable.
+
+---
+
+#### Pardus 23.4, Debian 12, and Ubuntu < 24.04 — Manual Installation
+
+1.  **Install Required Dependencies:**
+    Make sure the following packages are installed on your system. Run this command in your terminal:
+    ```bash
+    sudo apt update
+    sudo apt install python3 python3-pip python3-venv \
+                     python3-gi python3-gi-cairo gir1.2-gtk-4.0 gir1.2-adw-1 libgirepository1.0-dev \
+                     python3-numpy \
+                     python3-dev libcairo2-dev build-essential \
+                     fonts-noto-core fonts-liberation2
+    ```
+
+2.  **Download the Source Code:**
+
+    **Recommended (stable v1.11.2):**
+    ```bash
+    git clone --branch v1.11.2 https://github.com/word-sys/word-sys-pdf-editor.git
+    cd word-sys-pdf-editor
+    ```
+
+    **For testing / latest development build (may be unstable):**
+    ```bash
+    git clone https://github.com/word-sys/word-sys-pdf-editor.git
+    cd word-sys-pdf-editor
+    ```
+
+3.  **Create and Activate a Virtual Environment (Recommended):**
+    Creating a virtual environment in the project directory helps isolate Python dependencies from system-wide installations.
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+    *(You can use `deactivate` later to exit the virtual environment.)*
+
+4.  **Install Python Dependencies:**
+    Install the core Python dependencies (PyMuPDF, numpy, and anyconvert):
+    ```bash
+    pip install PyMuPDF numpy anyconvert pygobject==3.50.0
+    ```
+
+5.  **Run the Application:**
+    From the project root directory (where you extracted or cloned the source code), run:
+    ```bash
+    python3 run-editor.py
+    ```
+
+---
+
+#### Ubuntu 24.04+, Debian 13 Trixie — Manual Installation
+
+1.  **Install Required Dependencies:**
+    ```bash
+    sudo apt update
+    sudo apt install python3 python3-pip python3-venv \
+                     python3-gi python3-gi-cairo gir1.2-gtk-4.0 gir1.2-adw-1 libgirepository-2.0-dev \
+                     python3-numpy \
+                     python3-dev libcairo2-dev build-essential \
+                     fonts-noto-core fonts-liberation2
+    ```
+
+2.  **Download the Source Code:**
+
+    **Recommended (stable v1.11.2):**
+    ```bash
+    git clone --branch v1.11.2 https://github.com/word-sys/word-sys-pdf-editor.git
+    cd word-sys-pdf-editor
+    ```
+
+    **For testing / latest development build (may be unstable):**
+    ```bash
+    git clone https://github.com/word-sys/word-sys-pdf-editor.git
+    cd word-sys-pdf-editor
+    ```
+
+3.  **Create and Activate a Virtual Environment:**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+    *(You can use `deactivate` later to exit the virtual environment.)*
+
+4.  **Install Python Dependencies:**
+    ```bash
+    pip install PyMuPDF numpy anyconvert pygobject
+    ```
+
+5.  **Run the Application:**
+    ```bash
+    python3 run-editor.py
+    ```
+
+---
+
+#### Arch Linux and Derivatives — Manual Installation
+
+1.  **Download the Source Code:**
+
+    **Recommended (stable v1.11.2):**
+    ```bash
+    git clone --branch v1.11.2 https://github.com/word-sys/word-sys-pdf-editor.git
+    cd word-sys-pdf-editor
+    ```
+
+    **For testing / latest development build (may be unstable):**
+    ```bash
+    git clone https://github.com/word-sys/word-sys-pdf-editor.git
+    cd word-sys-pdf-editor
+    ```
+
+
+2.  **Create and Activate a Virtual Environment:**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+    *(You can use `deactivate` later to exit the virtual environment.)*
+
+3.  **Install Python Dependencies:**
+    ```bash
+    pip install PyMuPDF numpy anyconvert pygobject
+    ```
+
+4.  **Run the Application:**
+    ```bash
+    python3 run-editor.py
+    ```
+
+**CONGRATULATIONS! You have successfully launched word-sys's PDF Editor!**
+
+---
+
+#### Arch Linux and Derivatives — From AUR
+
+#### THIS PACKAGES ARENT CREATED OR MAINTAINED BY ME, CONSIDER CHECKING THEM ON AUR TO MAKE SURE THEY RIGHT, I AM NOT RESPONSIBLE FOR ANYTHING THAT HAPPENS OR GONNA HAPPEN AFTER INSTALLING FROM AUR CAUSE IM NOT THE CREATOR OR MAINTAINER OF THAT AUR PACKAGES, THEY ARE NOT TESTED BY ME SO BE CAREFULL! CONTACT WITH MAINTAINERS FOR ANY AUR CONNECTED ISSUE, NOT ME! IM NOT ARCH USER SO DONT EXPECT AUR PACKAGES CREATED OR MAINTAINED BY ME! ALL OFFICIAL PACKAGES BUILDED BY GITHUB ACTIONS ON RELEASES PAGE!
+
+1.  **Download, build and install:**
+
+    ```bash
+    git clone https://aur.archlinux.org/word-sys-pdf-editor
+    makepkg -sfi
+    ```
+
+    People using the yay AUR helper could build and install it using:
+    
+    ```bash
+    yay -S word-sys-pdf-editor
+    ```
+    
+    or if you prefer to use paru:
+    
+    ```bash
+    paru -S word-sys-pdf-editor
+    ```
+    Or you can use -bin package on AUR:
+    
+    ```bash
+    yay -S word-sys-pdf-editor-bin
+    ```
+    
+    or if you prefer to use paru:
+    
+    ```bash
+    paru -S word-sys-pdf-editor-bin
+    ```
+
+
+2.  **Run the Application:**
+    ```bash
+    word-sys-pdf-editor
+    ```
+
+    *You can also use your application launcher to execute word-sys's PDF Editor*
+
+---
+
+## Bug Reports and Feedback
+
+If you encounter any bugs, have a feature request, or want to leave general feedback, please use the [**GitHub Issues**](https://github.com/word-sys/word-sys-pdf-editor/issues) section.
+
+---
+
+## Contributing
+
+word-sys's PDF Editor is an open-source project and welcomes contributions! If you'd like to contribute, please follow these steps:
+
+1.  Fork this repository.
+2.  Create your own branch for a new feature or bug fix (`git checkout -b feature/new-feature` or `git checkout -b fix/bug-name`).
+3.  Make your changes and commit them (`git commit -am 'Added new feature'`).
+4.  Push your branch to GitHub (`git push origin feature/new-feature`).
+5.  Open a Pull Request (PR).
+
+---
+
+## License
+
+This project is licensed under the [**GNU General Public License v3.0 or later**](LICENSE).
+
+---
